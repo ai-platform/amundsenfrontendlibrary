@@ -11,7 +11,7 @@ import {
 
 import { ResourceFilterReducerState } from '../filters/reducer';
 
-export const BASE_URL = '/api/search/v0';
+export const BASE_URL = '/explore/api/search/v0';
 
 export interface SearchAPI {
   msg: string;

@@ -15,6 +15,6 @@ export function sendNotification(
       sender,
     },
     method: 'post',
-    url: `/api/mail/v0/notification`,
+    url: `/explore/api/mail/v0/notification`,
   });
 }

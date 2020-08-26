@@ -9,7 +9,7 @@ export type GetDashboardAPI = {
   dashboard: DashboardMetadata;
 };
 
-const DASHBOARD_BASE = '/api/metadata/v0';
+const DASHBOARD_BASE = '/explore/api/metadata/v0';
 
 const getDashboardDataFromResponseData = (data) => {
   // Adds the type to the query resource

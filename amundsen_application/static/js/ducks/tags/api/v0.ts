@@ -12,7 +12,7 @@ export type AllTagsAPI = {
 
 export function getAllTags() {
   return axios
-    .get('/api/metadata/v0/tags')
+    .get('/explore/api/metadata/v0/tags')
     .then((response: AxiosResponse<AllTagsAPI>) => {
       return response.data.tags.sort(sortTagsAlphabetical);
     });

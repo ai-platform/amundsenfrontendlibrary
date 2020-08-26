@@ -52,7 +52,7 @@ const config: webpack.Configuration = {
     ],
   },
   output: {
-    publicPath: '/static/dist/',
+    publicPath: '/explore/static/dist/',
     path: PATHS.dist,
     filename: '[name].[contenthash].js',
   },

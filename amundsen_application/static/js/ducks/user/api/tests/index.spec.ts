@@ -32,7 +32,7 @@ describe('getLoggedInUser', () => {
   it('calls axios with correct parameters', async () => {
     expect.assertions(1);
     await API.getLoggedInUser().then(() => {
-      expect(axiosMock).toHaveBeenCalledWith(`/api/auth_user`);
+      expect(axiosMock).toHaveBeenCalledWith(`/explore/api/auth_user`);
     });
   });
 
@@ -75,7 +75,7 @@ describe('getUser', () => {
     expect.assertions(1);
     await API.getUser(testId).then(() => {
       expect(axiosMock).toHaveBeenCalledWith(
-        `/api/metadata/v0/user?user_id=${testId}`
+        `/explore/api/metadata/v0/user?user_id=${testId}`
       );
     });
   });
@@ -119,7 +119,7 @@ describe('getUserOwn', () => {
     expect.assertions(1);
     await API.getUserOwn(testId).then(() => {
       expect(axiosMock).toHaveBeenCalledWith(
-        `/api/metadata/v0/user/own?user_id=${testId}`
+        `/explore/api/metadata/v0/user/own?user_id=${testId}`
       );
     });
   });
@@ -163,7 +163,7 @@ describe('getUserRead', () => {
     expect.assertions(1);
     await API.getUserRead(testId).then(() => {
       expect(axiosMock).toHaveBeenCalledWith(
-        `/api/metadata/v0/user/read?user_id=${testId}`
+        `/explore/api/metadata/v0/user/read?user_id=${testId}`
       );
     });
   });

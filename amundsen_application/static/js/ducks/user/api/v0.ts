@@ -10,7 +10,7 @@ export type UserReadAPI = { read: Resource[]; msg: string };
 
 export function getLoggedInUser() {
   return axios
-    .get(`/api/auth_user`)
+    .get(`/explore/api/auth_user`)
     .then((response: AxiosResponse<LoggedInUserAPI>) => {
       return response.data.user;
     });
@@ -20,7 +20,7 @@ export function getUser(userId: string, index?: string, source?: string) {
   const queryParams = qs.stringify({ index, source, user_id: userId });
 
   return axios
-    .get(`/api/metadata/v0/user?${queryParams}`)
+    .get(`/explore/api/metadata/v0/user?${queryParams}`)
     .then((response: AxiosResponse<UserAPI>) => {
       return response.data.user;
     });
@@ -28,7 +28,7 @@ export function getUser(userId: string, index?: string, source?: string) {
 
 export function getUserOwn(userId: string) {
   return axios
-    .get(`/api/metadata/v0/user/own?user_id=${userId}`)
+    .get(`/explore/api/metadata/v0/user/own?user_id=${userId}`)
     .then((response: AxiosResponse<UserOwnAPI>) => {
       return response.data;
     });
@@ -36,7 +36,7 @@ export function getUserOwn(userId: string) {
 
 export function getUserRead(userId: string) {
   return axios
-    .get(`/api/metadata/v0/user/read?user_id=${userId}`)
+    .get(`/explore/api/metadata/v0/user/read?user_id=${userId}`)
     .then((response: AxiosResponse<UserReadAPI>) => {
       return response.data;
     });

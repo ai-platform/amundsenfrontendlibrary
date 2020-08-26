@@ -2,8 +2,8 @@ import axios, { AxiosResponse } from 'axios';
 import { Issue, CreateIssuePayload, NotificationPayload } from 'interfaces';
 import { notificationsEnabled } from 'config/config-utils';
 
-export const API_PATH = '/api/issue';
-export const NOTIFICATION_API_PATH = '/api/mail/v0/notification';
+export const API_PATH = '/explore/api/issue';
+export const NOTIFICATION_API_PATH = '/explore/api/mail/v0/notification';
 
 export type IssuesAPI = {
   issues: {

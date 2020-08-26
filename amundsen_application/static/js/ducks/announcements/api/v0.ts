@@ -12,7 +12,7 @@ const SERVER_ERROR_CODE = 500;
 export function getAnnouncements() {
   return axios({
     method: 'get',
-    url: '/api/announcements/v0/',
+    url: '/explore/api/announcements/v0/',
   })
     .then((response: AxiosResponse<AnnouncementsAPI>) => {
       const { data, status } = response;

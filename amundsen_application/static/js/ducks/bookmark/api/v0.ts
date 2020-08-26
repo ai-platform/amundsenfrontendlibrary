@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 
 import { ResourceType } from 'interfaces';
 
-export const API_PATH = '/api/metadata/v0';
+export const API_PATH = '/explore/api/metadata/v0';
 // TODO - Consider moving 'Bookmarks' under 'User'
 // TODO: Define types for the AxiosResponse data
 

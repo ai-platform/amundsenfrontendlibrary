@@ -22,7 +22,7 @@ import {
   shouldSendNotification,
 } from './helpers';
 
-export const API_PATH = '/api/metadata/v0';
+export const API_PATH = '/explore/api/metadata/v0';
 
 type MessageAPI = { msg: string };
 
@@ -127,11 +127,14 @@ export function generateOwnerUpdateRequests(
     /* Chain requests to send notification on success to desired users */
     const request = axios(updatePayload)
       .then(() => {
-        return axios.get(`/api/metadata/v0/user?user_id=${item.id}`);
+        return axios.get(`/explore/api/metadata/v0/user?user_id=${item.id}`);
       })
       .then((response) => {
         if (shouldSendNotification(response.data.user)) {
-          return axios.post('/api/mail/v0/notification', notificationData);
+          return axios.post(
+            '/explore/api/mail/v0/notification',
+            notificationData
+          );
         }
       });
 
@@ -174,7 +177,7 @@ export function updateColumnDescription(
 
 export function getPreviewData(queryParams: PreviewQueryParams) {
   return axios({
-    url: '/api/preview/v0/',
+    url: '/explore/api/preview/v0/',
     method: 'POST',
     data: queryParams,
   })

@@ -15,7 +15,7 @@ describe('submitFeedback', () => {
     expect(axios).toHaveBeenCalledWith({
       data: formData,
       method: 'post',
-      url: '/api/mail/v0/feedback',
+      url: '/explore/api/mail/v0/feedback',
       headers: { 'Content-Type': 'multipart/form-data' },
     });
   });

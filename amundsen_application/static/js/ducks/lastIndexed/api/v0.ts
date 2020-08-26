@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-export const API_PATH = '/api/metadata/v0';
+export const API_PATH = '/explore/api/metadata/v0';
 
 type MessageAPI = { msg: string };
 
