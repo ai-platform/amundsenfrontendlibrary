@@ -21,7 +21,7 @@ for entry_point in iter_entry_points(group='announcement_client', name='announce
     if announcement_client_class is not None:
         ANNOUNCEMENT_CLIENT_CLASS = announcement_client_class
 
-announcements_blueprint = Blueprint('announcements', __name__, url_prefix='/api/announcements/v0')
+announcements_blueprint = Blueprint('announcements', __name__, url_prefix='/explore/api/announcements/v0')
 
 
 @announcements_blueprint.route('/', methods=['GET'])

@@ -23,7 +23,7 @@ LOGGER = logging.getLogger(__name__)
 
 REQUEST_SESSION_TIMEOUT_SEC = 3
 
-search_blueprint = Blueprint('search', __name__, url_prefix='/api/search/v0')
+search_blueprint = Blueprint('search', __name__, url_prefix='/explore/api/search/v0')
 
 SEARCH_DASHBOARD_ENDPOINT = '/search_dashboard'
 SEARCH_DASHBOARD_FILTER_ENDPOINT = '/search_dashboard_filter'

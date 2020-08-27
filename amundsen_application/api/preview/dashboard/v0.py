@@ -14,7 +14,7 @@ from amundsen_application.api.preview.dashboard.dashboard_preview.preview_factor
 LOGGER = logging.getLogger(__name__)
 PREVIEW_FACTORY: BasePreviewMethodFactory = None  # type: ignore
 
-dashboard_preview_blueprint = Blueprint('dashboard_preview', __name__, url_prefix='/api/dashboard_preview/v0')
+dashboard_preview_blueprint = Blueprint('dashboard_preview', __name__, url_prefix='/explore/api/dashboard_preview/v0')
 
 
 def initialize_preview_factory_class() -> None:

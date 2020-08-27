@@ -478,7 +478,7 @@ class MetadataTest(unittest.TestCase):
                       json=self.mock_popular_tables, status=HTTPStatus.OK)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/popular_tables')
+            response = test.get('/explore/api/metadata/v0/popular_tables')
             data = json.loads(response.data)
             self.assertEqual(response.status_code, HTTPStatus.OK)
             self.assertCountEqual(data.get('results'), self.expected_parsed_popular_tables)
@@ -494,7 +494,7 @@ class MetadataTest(unittest.TestCase):
                       json=self.mock_popular_tables, status=HTTPStatus.BAD_REQUEST)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/popular_tables')
+            response = test.get('/explore/api/metadata/v0/popular_tables')
             self.assertEqual(response.status_code, HTTPStatus.BAD_REQUEST)
 
     @responses.activate
@@ -508,7 +508,7 @@ class MetadataTest(unittest.TestCase):
                       json={'popular_tables': None}, status=HTTPStatus.OK)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/popular_tables')
+            response = test.get('/explore/api/metadata/v0/popular_tables')
             self.assertEqual(response.status_code, HTTPStatus.INTERNAL_SERVER_ERROR)
 
     @responses.activate
@@ -522,7 +522,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.get(
-                '/api/metadata/v0/table',
+                '/explore/api/metadata/v0/table',
                 query_string=dict(
                     key='db://cluster.schema/table',
                     index='0',
@@ -544,7 +544,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.put(
-                '/api/metadata/v0/update_table_owner',
+                '/explore/api/metadata/v0/update_table_owner',
                 json={
                     'key': 'db://cluster.schema/table',
                     'owner': 'test'
@@ -564,7 +564,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.put(
-                '/api/metadata/v0/update_table_owner',
+                '/explore/api/metadata/v0/update_table_owner',
                 json={
                     'key': 'db://cluster.schema/table',
                     'owner': 'test'
@@ -582,7 +582,7 @@ class MetadataTest(unittest.TestCase):
                       json={'neo4j_latest_timestamp': 1538352000}, status=HTTPStatus.OK)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/get_last_indexed')
+            response = test.get('/explore/api/metadata/v0/get_last_indexed')
             data = json.loads(response.data)
             self.assertEqual(response.status_code, HTTPStatus.OK)
             self.assertEqual(data.get('timestamp'), 1538352000)
@@ -598,7 +598,7 @@ class MetadataTest(unittest.TestCase):
                       json=None, status=HTTPStatus.BAD_REQUEST)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/get_last_indexed')
+            response = test.get('/explore/api/metadata/v0/get_last_indexed')
             self.assertEqual(response.status_code, HTTPStatus.BAD_REQUEST)
 
     @responses.activate
@@ -612,7 +612,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.get(
-                '/api/metadata/v0/get_table_description',
+                '/explore/api/metadata/v0/get_table_description',
                 query_string=dict(key='db://cluster.schema/table')
             )
             data = json.loads(response.data)
@@ -631,7 +631,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.get(
-                '/api/metadata/v0/get_table_description',
+                '/explore/api/metadata/v0/get_table_description',
                 query_string=dict(key='db://cluster.schema/table')
             )
             self.assertEqual(response.status_code, HTTPStatus.BAD_REQUEST)
@@ -647,7 +647,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.put(
-                '/api/metadata/v0/put_table_description',
+                '/explore/api/metadata/v0/put_table_description',
                 json={
                     'key': 'db://cluster.schema/table',
                     'description': 'test',
@@ -668,7 +668,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.get(
-                '/api/metadata/v0/get_column_description',
+                '/explore/api/metadata/v0/get_column_description',
                 query_string=dict(
                     key='db://cluster.schema/table',
                     index='0',
@@ -692,7 +692,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.get(
-                '/api/metadata/v0/get_column_description',
+                '/explore/api/metadata/v0/get_column_description',
                 query_string=dict(
                     key='db://cluster.schema/table',
                     index='0',
@@ -713,7 +713,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.put(
-                '/api/metadata/v0/put_column_description',
+                '/explore/api/metadata/v0/put_column_description',
                 json={
                     'key': 'db://cluster.schema/table',
                     'column_name': 'col',
@@ -733,7 +733,7 @@ class MetadataTest(unittest.TestCase):
         responses.add(responses.GET, url, json=self.mock_tags, status=HTTPStatus.OK)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/tags')
+            response = test.get('/explore/api/metadata/v0/tags')
             data = json.loads(response.data)
             self.assertCountEqual(data.get('tags'), self.expected_parsed_tags)
 
@@ -748,7 +748,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.put(
-                '/api/metadata/v0/update_table_tags',
+                '/explore/api/metadata/v0/update_table_tags',
                 json={
                     'key': 'db://cluster.schema/table',
                     'tag': 'tag_5'
@@ -767,7 +767,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.delete(
-                '/api/metadata/v0/update_table_tags',
+                '/explore/api/metadata/v0/update_table_tags',
                 json={
                     'key': 'db://cluster.schema/table',
                     'tag': 'tag_5'
@@ -786,7 +786,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.put(
-                '/api/metadata/v0/update_dashboard_tags',
+                '/explore/api/metadata/v0/update_dashboard_tags',
                 json={
                     'key': 'test_dashboard_uri',
                     'tag': 'test_tag'
@@ -805,7 +805,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.delete(
-                '/api/metadata/v0/update_dashboard_tags',
+                '/explore/api/metadata/v0/update_dashboard_tags',
                 json={
                     'key': 'test_dashboard_uri',
                     'tag': 'test_tag'
@@ -822,7 +822,7 @@ class MetadataTest(unittest.TestCase):
         responses.add(responses.GET, url, json=self.mock_user, status=HTTPStatus.OK)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/user')
+            response = test.get('/explore/api/metadata/v0/user')
             self.assertEquals(response.status_code, HTTPStatus.INTERNAL_SERVER_ERROR)
 
     @responses.activate
@@ -834,7 +834,7 @@ class MetadataTest(unittest.TestCase):
         responses.add(responses.GET, url, json=self.mock_user, status=HTTPStatus.OK)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/user', query_string=dict(user_id='testuser'))
+            response = test.get('/explore/api/metadata/v0/user', query_string=dict(user_id='testuser'))
             data = json.loads(response.data)
             self.assertEquals(response.status_code, HTTPStatus.OK)
             self.assertDictContainsSubset(self.expected_parsed_user, data.get('user'))
@@ -848,7 +848,7 @@ class MetadataTest(unittest.TestCase):
         responses.add(responses.GET, url, json=self.get_user_resource_response, status=HTTPStatus.OK)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/user/bookmark')
+            response = test.get('/explore/api/metadata/v0/user/bookmark')
             data = json.loads(response.data)
             self.assertEquals(response.status_code, HTTPStatus.OK)
             self.assertCountEqual(data.get('bookmarks'), self.expected_parsed_user_resources)
@@ -862,7 +862,7 @@ class MetadataTest(unittest.TestCase):
         responses.add(responses.GET, url, json=self.mock_user, status=HTTPStatus.BAD_REQUEST)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/user/bookmark')
+            response = test.get('/explore/api/metadata/v0/user/bookmark')
             self.assertEqual(response.status_code, HTTPStatus.BAD_REQUEST)
             expected = {
                 'bookmarks': {'table': [], 'dashboard': []},
@@ -880,7 +880,7 @@ class MetadataTest(unittest.TestCase):
         responses.add(responses.GET, url, json=self.get_user_resource_response, status=HTTPStatus.OK)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/user/bookmark', query_string=dict(user_id=specified_user))
+            response = test.get('/explore/api/metadata/v0/user/bookmark', query_string=dict(user_id=specified_user))
             data = json.loads(response.data)
             self.assertEquals(response.status_code, HTTPStatus.OK)
             self.assertCountEqual(data.get('bookmarks'), self.expected_parsed_user_resources)
@@ -901,7 +901,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.put(
-                '/api/metadata/v0/user/bookmark',
+                '/explore/api/metadata/v0/user/bookmark',
                 json={
                     'type': resource_type,
                     'key': key,
@@ -925,7 +925,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.delete(
-                '/api/metadata/v0/user/bookmark',
+                '/explore/api/metadata/v0/user/bookmark',
                 json={
                     'type': resource_type,
                     'key': key,
@@ -943,7 +943,7 @@ class MetadataTest(unittest.TestCase):
         responses.add(responses.GET, url, json=self.get_user_resource_response, status=HTTPStatus.OK)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/user/read', query_string=dict(user_id=test_user))
+            response = test.get('/explore/api/metadata/v0/user/read', query_string=dict(user_id=test_user))
             data = json.loads(response.data)
             self.assertEquals(response.status_code, HTTPStatus.OK)
             self.assertCountEqual(data.get('read'), self.expected_parsed_user_resources.get('table'))
@@ -958,7 +958,7 @@ class MetadataTest(unittest.TestCase):
         responses.add(responses.GET, url, json=self.get_user_resource_response, status=HTTPStatus.OK)
 
         with local_app.test_client() as test:
-            response = test.get('/api/metadata/v0/user/own', query_string=dict(user_id=test_user))
+            response = test.get('/explore/api/metadata/v0/user/own', query_string=dict(user_id=test_user))
             data = json.loads(response.data)
             self.assertEquals(response.status_code, HTTPStatus.OK)
             self.assertCountEqual(data.get('own'), self.expected_parsed_user_resources)
@@ -974,7 +974,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.get(
-                '/api/metadata/v0/dashboard',
+                '/explore/api/metadata/v0/dashboard',
                 query_string=dict(
                     uri='test_dashboard_uri',
                     index='0',
@@ -996,7 +996,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.get(
-                '/api/metadata/v0/dashboard',
+                '/explore/api/metadata/v0/dashboard',
                 query_string=dict()
             )
             data = json.loads(response.data)
@@ -1015,7 +1015,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.get(
-                '/api/metadata/v0/table/{0}/dashboards'.format(test_table)
+                '/explore/api/metadata/v0/table/{0}/dashboards'.format(test_table)
             )
             data = json.loads(response.data)
 
@@ -1037,7 +1037,7 @@ class MetadataTest(unittest.TestCase):
 
         with local_app.test_client() as test:
             response = test.get(
-                '/api/metadata/v0/table/{0}/dashboards'.format(test_table)
+                '/explore/api/metadata/v0/table/{0}/dashboards'.format(test_table)
             )
             self.assertEqual(response.status_code, HTTPStatus.BAD_REQUEST)
             expected = {

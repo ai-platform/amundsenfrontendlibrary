@@ -32,7 +32,7 @@ if os.getenv('APP_WRAPPER') and os.getenv('APP_WRAPPER_CLASS'):
     app_wrapper_class = getattr(module, moduleClass)
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.getenv('STATIC_ROOT', 'static')
+STATIC_ROOT = os.getenv('STATIC_ROOT', os.path.join('explore', 'static'))
 static_dir = os.path.join(PROJECT_ROOT, STATIC_ROOT)
 
 
