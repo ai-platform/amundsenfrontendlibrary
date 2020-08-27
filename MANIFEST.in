@@ -1,6 +1,6 @@
-recursive-include amundsen_application/static/dist *
-recursive-include amundsen_application/static/fonts *
-recursive-include amundsen_application/static/images *
+recursive-include amundsen_application/explore/static/dist *
+recursive-include amundsen_application/explore/static/fonts *
+recursive-include amundsen_application/explore/static/images *
 
 
 recursive-include amundsen_application/.*/static/dist *

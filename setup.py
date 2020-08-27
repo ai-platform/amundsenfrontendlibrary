@@ -8,7 +8,7 @@ import subprocess
 from setuptools import setup, find_packages
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-PACKAGE_DIR = os.path.join(BASE_DIR, 'amundsen_application', 'static')
+PACKAGE_DIR = os.path.join(BASE_DIR, 'amundsen_application', 'explore', 'static')
 
 
 def is_npm_installed() -> bool:
