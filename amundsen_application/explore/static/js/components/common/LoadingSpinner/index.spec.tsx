@@ -19,7 +19,7 @@ describe('LoadingSpinner', () => {
       expect(subject.find('img').props()).toMatchObject({
         alt: 'loading...',
         className: 'loading-spinner',
-        src: '/static/images/loading_spinner.gif',
+        src: '/explore/static/images/loading_spinner.gif',
       });
     });
   });

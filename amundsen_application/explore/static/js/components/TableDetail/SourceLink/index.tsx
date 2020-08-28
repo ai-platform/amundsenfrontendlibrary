@@ -17,7 +17,7 @@ const SourceLink: React.FC<SourceLinkProps> = ({
   if (tableSource === null || tableSource.source === null) return null;
 
   const image =
-    tableSource.source_type === 'github' ? '/static/images/github.png' : '';
+    tableSource.source_type === 'github' ? '/explore/static/images/github.png' : '';
   return (
     <a
       className="header-link"

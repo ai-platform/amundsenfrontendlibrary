@@ -19,7 +19,7 @@ const WriterLink: React.FC<WriterLinkProps> = ({
     return null;
   }
   const image =
-    tableWriter.name === 'Airflow' ? '/static/images/airflow.jpeg' : '';
+    tableWriter.name === 'Airflow' ? '/explore/static/images/airflow.jpeg' : '';
 
   return (
     <OverlayTrigger

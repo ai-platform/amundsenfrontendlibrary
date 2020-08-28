@@ -8,7 +8,7 @@ class LoadingSpinner extends React.Component {
   render() {
     return (
       <img
-        src="/static/images/loading_spinner.gif"
+        src="/explore/static/images/loading_spinner.gif"
         alt="loading..."
         className="loading-spinner"
       />
