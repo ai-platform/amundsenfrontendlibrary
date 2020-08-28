@@ -107,33 +107,6 @@ export class NavBar extends React.Component<NavBarProps> {
             <div id="nav-bar-right" className="ml-auto nav-bar-right">
               {this.generateNavLinks(getNavLinks())}
               {feedbackEnabled() && <Feedback />}
-              {loggedInUser && indexUsersEnabled() && (
-                <Dropdown id="user-dropdown" pullRight>
-                  <Dropdown.Toggle
-                    noCaret
-                    className="nav-bar-avatar avatar-dropdown"
-                  >
-                    {avatar}
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu className="profile-menu">
-                    <div className="profile-menu-header">
-                      <div className="title-2">{loggedInUser.display_name}</div>
-                      <div>{loggedInUser.email}</div>
-                    </div>
-                    <MenuItem
-                      componentClass={Link}
-                      id="nav-bar-avatar-link"
-                      to={userLink}
-                      href={userLink}
-                    >
-                      {PROFILE_LINK_TEXT}
-                    </MenuItem>
-                  </Dropdown.Menu>
-                </Dropdown>
-              )}
-              {loggedInUser && !indexUsersEnabled() && (
-                <div className="nav-bar-avatar">{avatar}</div>
-              )}
             </div>
           </div>
         </div>

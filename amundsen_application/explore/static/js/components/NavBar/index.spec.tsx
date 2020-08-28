@@ -200,14 +200,6 @@ describe('NavBar', () => {
         expect(element.props().to).toEqual('/user/test0?source=navbar');
       });
     });
-
-    describe('if indexUsers is disabled', () => {
-      it('does not render a Link to the user profile', () => {
-        AppConfig.indexUsers.enabled = false;
-        const { wrapper } = setup();
-        expect(wrapper.find('#nav-bar-avatar-link').exists()).toBe(false);
-      });
-    });
   });
 });
 
