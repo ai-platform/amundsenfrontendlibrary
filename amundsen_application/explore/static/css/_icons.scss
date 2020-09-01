@@ -106,6 +106,11 @@ img.icon {
     mask-image: url('/explore/static/images/icons/mail.svg');
   }
 
+  &.icon-minio {
+    content: url('/explore/static/images/icons/logo-minio.svg');
+    background-color: transparent;
+  }
+
   &.icon-plus {
     -webkit-mask-image: url('/explore/static/images/icons/plus.svg');
     mask-image: url('/explore/static/images/icons/plus.svg');
@@ -169,6 +174,11 @@ img.icon {
   &.icon-users {
     -webkit-mask-image: url('/explore/static/images/icons/users.svg');
     mask-image: url('/explore/static/images/icons/users.svg');
+  }
+
+  &.icon-yugabyte {
+    content: url('/explore/static/images/icons/logo-yugabyte.svg');
+    background-color: transparent;
   }
 
   &.icon-more {

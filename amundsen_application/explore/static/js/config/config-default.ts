@@ -59,6 +59,10 @@ const configDefault: AppConfig = {
           displayName: 'Hive',
           iconClass: 'icon-hive',
         },
+        'minio': {
+          displayName: 'MinIO',
+          iconClass: 'icon-minio',
+        },
         'presto': {
           displayName: 'Presto',
           iconClass: 'icon-presto',
@@ -70,6 +74,10 @@ const configDefault: AppConfig = {
         'redshift': {
           displayName: 'Redshift',
           iconClass: 'icon-redshift',
+        },
+        'yugabyte': {
+          displayName: 'Yugabyte',
+          iconClass: 'icon-yugabyte',
         },
       },
       filterCategories: [
