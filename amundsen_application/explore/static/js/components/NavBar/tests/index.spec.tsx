@@ -127,7 +127,7 @@ describe('NavBar', () => {
 
     it('renders homepage Link with correct text', () => {
       element = wrapper.find('#nav-bar-left').find(Link).find('.title-3');
-      expect(element.children().text()).toEqual('AMUNDSEN');
+      expect(element.children().text()).toEqual('EXPLORE');
     });
 
     it('calls generateNavLinks with correct props', () => {

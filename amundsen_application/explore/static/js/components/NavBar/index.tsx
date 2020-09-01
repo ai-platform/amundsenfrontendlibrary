@@ -64,43 +64,12 @@ export class NavBar extends React.Component<NavBarProps> {
                   AppConfig.logoPath &&
                   <img id="logo-icon" className="logo-icon" src={AppConfig.logoPath} />
                 }
-                <span className="title-3">AMUNDSEN</span>
+                <span className="title-3">EXPLORE</span>
               </Link>
             </div>
             { this.renderSearchBar() }
             <div id="nav-bar-right" className="ml-auto nav-bar-right">
               {this.generateNavLinks(AppConfig.navLinks)}
-              {
-                feedbackEnabled() &&
-                <Feedback />
-              }
-              {
-                this.props.loggedInUser && indexUsersEnabled() &&
-                <Dropdown id='user-dropdown' pullRight={true}>
-                  <Dropdown.Toggle noCaret={true} className="nav-bar-avatar avatar-dropdown">
-                    <Avatar name={this.props.loggedInUser.display_name} size={32} round={true} />
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu className='profile-menu'>
-                    <div className='profile-menu-header'>
-                      <div className='title-2'>{this.props.loggedInUser.display_name}</div>
-                      <div>{this.props.loggedInUser.email}</div>
-                    </div>
-                    <MenuItem
-                      componentClass={Link}
-                      id="nav-bar-avatar-link"
-                      to={`/explore/user/${this.props.loggedInUser.user_id}?source=navbar`}
-                      href={`/explore/user/${this.props.loggedInUser.user_id}?source=navbar`}>
-                        My Profile
-                    </MenuItem>
-                  </Dropdown.Menu>
-                </Dropdown>
-              }
-              {
-                this.props.loggedInUser && !indexUsersEnabled() &&
-                <div className="nav-bar-avatar">
-                  <Avatar name={this.props.loggedInUser.display_name} size={32} round={true} />
-                </div>
-              }
             </div>
           </div>
         </div>
