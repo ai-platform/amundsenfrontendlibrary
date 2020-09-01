@@ -11,6 +11,7 @@ def init_routes(app: Flask) -> None:
     app.add_url_rule('/healthcheck', 'healthcheck', healthcheck)
     app.add_url_rule('/explore/static/<path:filename>', 'static_explore', static_rule)  # static files
     app.add_url_rule('/explore/', 'index', index, defaults={'path': ''})  # also functions as catch_all
+    app.add_url_rule('/explore/<path:path>', 'index_all', index)  # catch_all
 
 
 def index(path: str) -> Any:
