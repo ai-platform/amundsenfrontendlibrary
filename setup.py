@@ -5,7 +5,7 @@ import subprocess
 from setuptools import setup, find_packages
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-PACKAGE_DIR = os.path.join(BASE_DIR, 'amundsen_application', 'static')
+PACKAGE_DIR = os.path.join(BASE_DIR, 'amundsen_application', 'explore', 'static')
 
 
 def is_npm_installed() -> bool:
@@ -34,7 +34,7 @@ requirements_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'r
 with open(requirements_path) as requirements_file:
     requirements = requirements_file.readlines()
 
-__version__ = '2.1.1'
+__version__ = '2.1.1-rcp'
 
 
 setup(

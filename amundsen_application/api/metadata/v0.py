@@ -18,7 +18,7 @@ from amundsen_application.api.utils.request_utils import get_query_param, reques
 LOGGER = logging.getLogger(__name__)
 
 
-metadata_blueprint = Blueprint('metadata', __name__, url_prefix='/api/metadata/v0')
+metadata_blueprint = Blueprint('metadata', __name__, url_prefix='/explore/api/metadata/v0')
 
 TABLE_ENDPOINT = '/table'
 LAST_INDEXED_ENDPOINT = '/latest_updated_ts'

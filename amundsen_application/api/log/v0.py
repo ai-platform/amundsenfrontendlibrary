@@ -11,7 +11,7 @@ from amundsen_application.api.utils.request_utils import get_query_param
 
 LOGGER = logging.getLogger(__name__)
 
-log_blueprint = Blueprint('log', __name__, url_prefix='/api/log/v0')
+log_blueprint = Blueprint('log', __name__, url_prefix='/explore/api/log/v0')
 
 
 @log_blueprint.route('/log_event', methods=['POST'])
