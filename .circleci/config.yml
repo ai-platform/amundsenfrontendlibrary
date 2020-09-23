@@ -3,13 +3,13 @@ jobs:
   py-test:
     docker:
       # does not build on python3.8
-      - image: circleci/python:3.7.9-buster
+      - image: cimg/python:3.7
     steps:
       - checkout
       - run: make ci-test
   node-test:
     docker:
-      - image: circleci/node:12.9
+      - image: cimg/node:12.18
     environment:
       IS_DEPLOYABLE: false
     working_directory: ~/project/amundsen_application/explore/static/
@@ -25,4 +25,4 @@ workflows:
   test-workflow:
     jobs:
       - py-test
-      # - node-test
+      - node-test
