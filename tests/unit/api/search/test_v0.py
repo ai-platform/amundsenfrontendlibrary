@@ -53,7 +53,7 @@ class SearchTable(unittest.TestCase):
         self.expected_parsed_table_results = MOCK_PARSED_TABLE_RESULTS
         self.search_service_url = local_app.config['SEARCHSERVICE_BASE'] + SEARCH_TABLE_ENDPOINT
         self.search_service_filter_url = local_app.config['SEARCHSERVICE_BASE'] + SEARCH_TABLE_FILTER_ENDPOINT
-        self.fe_flask_endpoint = '/api/search/v0/table'
+        self.fe_flask_endpoint = '/explore/api/search/v0/table'
 
     def test_fail_if_term_is_none(self) -> None:
         """
@@ -258,7 +258,7 @@ class SearchUser(unittest.TestCase):
             'total_results': 1,
             'results': 'Bad results to trigger exception'
         }
-        self.fe_flask_endpoint = '/api/search/v0/user'
+        self.fe_flask_endpoint = '/explore/api/search/v0/user'
 
     def test_search_user_fail_if_no_query(self) -> None:
         """

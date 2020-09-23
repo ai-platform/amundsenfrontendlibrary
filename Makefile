@@ -45,3 +45,11 @@ push-oidc-image:
 
 .PHONY: build-push-image
 build-push-image: image oidc-image push-image push-oidc-image
+
+.PHONY: ci-build
+ci-build:
+	pip3 install -r requirements.txt
+
+.PHONY: ci-test
+ci-test: ci-build test
+    

@@ -46,7 +46,7 @@ class MailTest(unittest.TestCase):
         :return:
         """
         with local_app.test_client() as test:
-            response = test.post('/api/mail/v0/feedback', json={
+            response = test.post('/explore/api/mail/v0/feedback', json={
                 'rating': '10', 'comment': 'test'
             })
             self.assertEqual(response.status_code, HTTPStatus.NOT_IMPLEMENTED)
@@ -58,7 +58,7 @@ class MailTest(unittest.TestCase):
         """
         local_app.config['MAIL_CLIENT'] = MockMailClient(status_code=200)
         with local_app.test_client() as test:
-            response = test.post('/api/mail/v0/feedback', json={
+            response = test.post('/explore/api/mail/v0/feedback', json={
                 'rating': '10', 'comment': 'test'
             })
             self.assertEqual(response.status_code, HTTPStatus.OK)
@@ -70,7 +70,7 @@ class MailTest(unittest.TestCase):
         """
         local_app.config['MAIL_CLIENT'] = MockBadClient()
         with local_app.test_client() as test:
-            response = test.post('/api/mail/v0/feedback', json={
+            response = test.post('/explore/api/mail/v0/feedback', json={
                 'rating': '10', 'comment': 'test'
             })
             self.assertEqual(response.status_code, HTTPStatus.INTERNAL_SERVER_ERROR)
@@ -84,7 +84,7 @@ class MailTest(unittest.TestCase):
         expected_code = HTTPStatus.BAD_REQUEST
         local_app.config['MAIL_CLIENT'] = MockMailClient(status_code=expected_code)
         with local_app.test_client() as test:
-            response = test.post('/api/mail/v0/feedback', json={
+            response = test.post('/explore/api/mail/v0/feedback', json={
                 'rating': '10', 'comment': 'test'
             })
             self.assertEqual(response.status_code, expected_code)
@@ -101,7 +101,7 @@ class MailTest(unittest.TestCase):
         test_options = {}
 
         with local_app.test_client() as test:
-            test.post('/api/mail/v0/notification', json={
+            test.post('/explore/api/mail/v0/notification', json={
                 'recipients': test_recipients,
                 'notificationType': test_notification_type,
                 'options': test_options,
@@ -125,7 +125,7 @@ class MailTest(unittest.TestCase):
         test_options = {}
 
         with local_app.test_client() as test:
-            response = test.post('/api/mail/v0/notification', json={
+            response = test.post('/explore/api/mail/v0/notification', json={
                 'recipients': test_recipients,
                 'sender': test_sender,
                 'options': test_options,
@@ -142,7 +142,7 @@ class MailTest(unittest.TestCase):
         """
         with local_app.test_client() as test:
             # generates error
-            response = test.post('/api/mail/v0/notification', json=None)
+            response = test.post('/explore/api/mail/v0/notification', json=None)
 
             self.assertEquals(response.status_code, HTTPStatus.INTERNAL_SERVER_ERROR)
             self.assertFalse(send_notification_mock.called)
